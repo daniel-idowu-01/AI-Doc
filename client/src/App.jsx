@@ -1,10 +1,10 @@
-
+import { SideBar } from "./components"
 
 function App() {
 
   return (
-    <div>
-      <p className='bg-red-500'>Jekkka</p>
+    <div className="urbanist">
+      <SideBar />
     </div>
   )
 }
