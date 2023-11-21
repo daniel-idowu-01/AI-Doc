@@ -6,8 +6,11 @@ import Bookmark from './18-bookmark.svg';
 import User from './13-user.svg';
 import Document from './17-document.svg';
 import Logout from './Logout.svg';
+import Search from './11-search.svg';
+import Arrow from './icon-arrow.svg';
+import CurvedArrow from './46-arrow-curved.svg';
 
 
 export {
-  Logo, Dashboard, Chat, Gear, Bookmark, User, Document, Logout
+  Logo, Dashboard, Chat, Gear, Bookmark, User, Document, Logout, Search, Arrow, CurvedArrow
 }

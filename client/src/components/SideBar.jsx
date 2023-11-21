@@ -17,7 +17,7 @@ const SideBar = () => {
         <div className='flex flex-col gap-8 mx-auto'>
           <div className='relative'>
             <span className='absolute bg-black text-white -top-1/4 right-0 p-1 px-2 rounded-[100%] text-[10px]'>16</span>
-            <img src={Dashboard} alt='' className='w-10 h-10 bg-[#0B63E5] p-2 rounded-full' />
+            <img src={Dashboard} alt='' className='w-10 h-10 bg-secondary p-2 rounded-full' />
           </div>
           <img src={Chat} alt="" className='w-10 h-6' />
           <img src={Gear} alt="" className='w-10 h-6' />
