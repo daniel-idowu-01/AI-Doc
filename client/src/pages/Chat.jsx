@@ -3,7 +3,7 @@ import { TopContent, SearchInput, AIChat, UserChat } from '../components'
 
 const Chat = () => {
   return (
-    <section className='w-[90%] sm:w-[95%] bg-background px-10 py-5'>
+    <section className='relative left-[5%] w-[90%] sm:w-[95%] bg-background px-10 py-5'>
       <TopContent />
 
       <article className='mt-10'>
@@ -16,7 +16,27 @@ const Chat = () => {
           <div className='flex justify-between'>
             <div></div>
             <UserChat />
-          </div>        
+          </div>
+
+          <div className='flex justify-between'>
+            <AIChat />
+            <div></div>
+          </div>
+
+          <div className='flex justify-between'>
+            <div></div>
+            <UserChat />
+          </div>
+
+          <div className='flex justify-between'>
+            <AIChat />
+            <div></div>
+          </div>
+
+          <div className='flex justify-between'>
+            <div></div>
+            <UserChat />
+          </div>
         </section>
 
         <article className='w-1/2 mx-auto'>

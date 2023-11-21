@@ -9,7 +9,7 @@ const Home = () => {
 
 
   return (
-    <section className='w-[90%] sm:w-[95%] bg-background px-10 py-5'>
+    <section className='relative left-[5%] h-screen w-[90%] sm:w-[95%] bg-background px-10 py-5'>
       <TopContent />
 
       {/* body content */}
@@ -38,7 +38,7 @@ const Home = () => {
 
               <p className='text-white mt-2 text-center'>Emergency Assistance</p>
             </article>
-            
+
             <SearchInput />
           </aside>
 
