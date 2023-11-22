@@ -5,13 +5,13 @@ import { Link } from "react-router-dom";
 
 function Signup()   {
     return (
-        <section className="flex gap-8 justify-items-center items-center">
-            <div className="left-side bg-[url('./assets/images/bg.png')]">
+        <section className="flex h-screen gap-16 justify-center items-center">
+            <div className="left-side sm:max-md:hidden bg-[url('./assets/images/bg.png')]">
                 <AIbot />
             </div>
 
 
-            <div className="w-1/2 right-side m-20">
+            <div className="w-1/2 right-side mr-10 mt-20">
                 <img src={ Logo }/>
                 <p className="text-2xl font-bold">Login to your account</p>
                 <p>See what is going on with your health</p>
@@ -28,12 +28,12 @@ function Signup()   {
                 </div>
 
                 <form>
-                    <label for="email">
+                    <label for="email" className="font-semibold text-sm">
                         Email<br/>
                         <input type="email" className="rounded-md w-full border border-color: inherit py-2 px-3 mb-8" placeholder="johndoe@email.com" name="email"/>
                     </label><br/>
 
-                    <label for="password">
+                    <label for="password" className="font-semibold text-sm">
                         Password<br/>
                         <input type="password" className="rounded-md w-full border border-color: inherit py-2 px-3 " placeholder="***********"/>
                     </label>
@@ -56,7 +56,7 @@ function Signup()   {
                 </div>
 
                 <div >
-                    <p className="mt-20 text-center">Not registered yet?<Link to="./Signup"> <span className="text-fuchsia-400">Create an account</span></Link></p>
+                    <p className="my-10 text-center">Not registered yet?<Link to="./Signup"> <span className="text-fuchsia-400">Create an account</span></Link></p>
                 </div>
             </div>
         </section>

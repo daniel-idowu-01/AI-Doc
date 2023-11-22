@@ -16,7 +16,7 @@ function Signup()   {
                 <p className="text-2xl font-bold">Login to your account</p>
                 <p>See what is going on with your health</p>
 
-                <div className="my-4 ">
+                <div className="my-8 ">
                     <div className="">
                         <button className="text-center w-full my-2 rounded-md border border-color: inherit py-2 px-3"><span className="flex justify-content-center items-center"><img src={Google} className="pr-2"/>Sign Up with Google</span></button>
 
