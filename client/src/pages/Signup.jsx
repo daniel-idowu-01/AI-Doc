@@ -15,7 +15,7 @@ function Signup()   {
                 <div className="flex flex-col gap-5">
                     <img src={Logo} className="w-8" />
                     <div>
-                        <p className="text-2xl font-bold">Login to your account</p>
+                        <p className="text-2xl font-bold">Create an account</p>
                         <p>See what is going on with your health</p>
                     </div>
                 </div>
