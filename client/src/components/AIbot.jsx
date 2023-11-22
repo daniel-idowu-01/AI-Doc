@@ -12,7 +12,7 @@ function Aibot() {
             </div>
 
             <div className="text-center">
-                <p className="font-bold text-3xl my-6">Get Health Advise 24/7</p>
+                <p className="font-bold text-3xl my-6 text-[#0B63E5]">Get Health Advise 24/7</p>
                 <p>Consult your favorite AI Doctor</p>
             </div>
         </div>

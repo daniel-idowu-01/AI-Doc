@@ -22,17 +22,12 @@ function Signup()   {
 
                     </div>
                     <div className="text-center ">
-                        <p>---- or Sign up with email ----</p>
+                        <p>---- or Sign in with email ----</p>
                     </div>
 
                 </div>
 
                 <form>
-                    <label for="name" className="my-8">
-                        Full Name<br/>
-                        <input type="text" className="rounded-md w-full border border-color: inherit py-2 px-3 mb-8" placeholder="John Doe" name="name" id="name"/>
-                    </label><br/>
-
                     <label for="email">
                         Email<br/>
                         <input type="email" className="rounded-md w-full border border-color: inherit py-2 px-3 mb-8" placeholder="johndoe@email.com" name="email"/>
@@ -40,18 +35,23 @@ function Signup()   {
 
                     <label for="password">
                         Password<br/>
-                        <input type="password" className="rounded-md w-full border border-color: inherit py-2 px-3 mb-8" placeholder="***********"/>
+                        <input type="password" className="rounded-md w-full border border-color: inherit py-2 px-3 " placeholder="***********"/>
                     </label>
+
+                    <div className="flex justify-between items-center text-slate-600 text-sm">
+                        <div><input type="checkbox" checked /><span>Remember Me</span></div>
+                        <p>Forgot password?</p>
+                    </div>
 
                 </form>
 
-                <div className="flex">
-                    <button className=" w-full justify-items-around rounded-md py-2 px-3 bg-[#0B63E5] text-white text-bold">Sign Up</button>
+                <div className="flex mt-10">
+                    <button className=" w-full justify-items-around rounded-md py-2 px-3 bg-[#0B63E5] text-white text-bold">Login</button>
 
                 </div>
 
                 <div >
-                    <p className="mt-20 text-center">Already have an acount?<Link to="/Login"> <span className="text-fuchsia-400">Login</span></Link></p>
+                    <p className="mt-20 text-center">Not registered yet?<Link to="./Signup"> <span className="text-fuchsia-400">Create an account</span></Link></p>
                 </div>
             </div>
         </section>
