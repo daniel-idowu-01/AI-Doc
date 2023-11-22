@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { Logo, Dashboard, Chat, Gear, Bookmark, User, Document, Logout } from '../assets/images'
 
 const SideBar = () => {
