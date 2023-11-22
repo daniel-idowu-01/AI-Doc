@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 function Signup()   {
     return (
         <section className="flex gap-8 justify-items-center items-center">
-            <div className="left-side bg-[url('./assets/images/bg.png')]">
+            <div className="left-side sm:max-md:hidden bg-[url('./assets/images/bg.png')]">
                 <AIbot />
             </div>
 
@@ -46,8 +46,12 @@ function Signup()   {
                 </form>
 
                 <div className="flex">
-                    <button className=" w-full justify-items-around rounded-md py-2 px-3 bg-[#0B63E5] text-white text-bold">Sign Up</button>
+                    <div className="w-full">
+                        <Link to="/Email">
+                            <button className=" w-full justify-items-around rounded-md py-2 px-3 bg-[#0B63E5] text-white text-bold">Sign Up</button>
+                        </Link>
 
+                    </div>
                 </div>
 
                 <div >

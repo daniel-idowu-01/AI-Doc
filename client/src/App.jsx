@@ -3,6 +3,7 @@ import { MainView, Home, Chat } from "./pages";
 import Signup from "./pages/SignUp";
 import Login from "./pages/Login";
 import { Routes, Route } from 'react-router-dom';
+import Email from "./pages/Email";
 
 function App() {
 
@@ -11,8 +12,9 @@ function App() {
       <Routes>
       <Route path='/' element={<Signup />} />
       <Route path='/login' element={<Login />} />
-      <Route path="/home" element={<Home />}/>
+      <Route path='/email' element={<Email />} />
         <Route element={<MainView />}>
+          <Route path="/home" element={<Home />}/>
           <Route path='/chat' element={<Chat />} />
         </Route>
       </Routes>

@@ -38,7 +38,7 @@ function Signup()   {
                         <input type="password" className="rounded-md w-full border border-color: inherit py-2 px-3 " placeholder="***********"/>
                     </label>
 
-                    <div className="flex justify-between items-center text-slate-600 text-sm">
+                    <div className="flex justify-between items-center font-medium text-slate-600 text-sm">
                         <div><input type="checkbox" checked /><span>Remember Me</span></div>
                         <p>Forgot password?</p>
                     </div>
@@ -46,7 +46,12 @@ function Signup()   {
                 </form>
 
                 <div className="flex mt-10">
-                    <button className=" w-full justify-items-around rounded-md py-2 px-3 bg-[#0B63E5] text-white text-bold">Login</button>
+                    <div className="w-full">
+                        <Link to="/Home">
+                            <button className="w-full justify-items-around rounded-md py-2 px-3 bg-[#0B63E5] text-white text-bold">Login</button>
+                        </Link>
+                    </div>
+                    
 
                 </div>
 
