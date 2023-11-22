@@ -6,12 +6,12 @@ import { Link } from "react-router-dom";
 function Signup()   {
     return (
         <section className="clash-variable flex gap-8 justify-items-center items-center overflow-y-hidden">
-            <article className="left-side bg-[url('./assets/images/bg.png')] ">
+            <article className="hidden sm:block left-side bg-[url('./assets/images/bg.png')] ">
                 <AIbot />
             </article>
 
 
-            <article className="w-[30%] right-side m-20">
+            <article className="w-full sm:w-[30%] right-side m-10 sm:m-20">
                 <div className="flex flex-col gap-5">
                     <img src={Logo} className="w-8" />
                     <div>
@@ -25,7 +25,7 @@ function Signup()   {
                         <button className="text-center w-full my-4 rounded-md border border-color: inherit py-2 px-3">
                             <span className="flex justify-content-center items-center">
                                 <img src={Google} className="pr-2" />
-                                Sign Up with Google
+                                Sign In with Google
                             </span>
                         </button>
 
