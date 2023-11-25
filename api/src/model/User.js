@@ -19,7 +19,11 @@ const userSchema = new mongoose.Schema({
   refreshToken: {
     type: String,
     default: null,
-  }
+  },
+  isEmailVerified: {
+    type: Boolean,
+    default: false,
+  },
 });
 
-module.exports = mongoose.model('User', userSchema); 
+module.exports = mongoose.model('User', userSchema);
