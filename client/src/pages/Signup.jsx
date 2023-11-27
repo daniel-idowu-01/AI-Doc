@@ -3,7 +3,7 @@ import { Logo,  Google } from '../assets/images';
 import AIbot from '../components/AIbot';
 import { Link, useNavigate } from "react-router-dom";
 
-function SignUp()   {
+function Signup()   {
 
     const [formData, setFormData] = useState({})
     const [isLoading, setIsLoading] = useState(false)
@@ -50,23 +50,12 @@ function SignUp()   {
   }
     
     return (
-<<<<<<< HEAD
-        <section className="flex h-screen gap-16 justify-center items-center">
-            <div className="left-side sm:max-md:hidden bg-[url('./assets/images/bg.png')]">
-=======
         <section className="clash-variable flex gap-8 justify-items-center items-center">
             <div className="hidden sm:block left-side bg-[url('./assets/images/bg.png')] ">
->>>>>>> 791f5b192b33043a82bac89b65010a07214867aa
                 <AIbot />
             </div>
 
 
-<<<<<<< HEAD
-            <div className="w-1/2 right-side mr-10 mt-20">
-                <img src={ Logo }/>
-                <p className="text-2xl font-bold">Login to your account</p>
-                <p>See what is going on with your health</p>
-=======
             <div className="w-full sm:w-[30%] right-side m-10 sm:m-20">
                 <div className="flex flex-col gap-5">
                     <img src={Logo} className="w-8" />
@@ -75,13 +64,9 @@ function SignUp()   {
                         <p>See what is going on with your health</p>
                     </div>
                 </div>
->>>>>>> 791f5b192b33043a82bac89b65010a07214867aa
 
                 <div className="my-2">
                     <div className="">
-<<<<<<< HEAD
-                        <button className="text-center w-full my-2 rounded-md border border-color: inherit py-2 px-3"><span className="flex justify-content-center items-center"><img src={Google} className="pr-2"/>Sign Up with Google</span></button>
-=======
                         <button
                             className="text-center w-full my-4 rounded-md border border-color: inherit py-2 px-3"
                         >
@@ -90,7 +75,6 @@ function SignUp()   {
                                 Sign Up with Google
                             </span>
                         </button>
->>>>>>> 791f5b192b33043a82bac89b65010a07214867aa
 
                     </div>
                     <div className="text-center ">
@@ -100,23 +84,6 @@ function SignUp()   {
                     </div>
                 </div>
 
-<<<<<<< HEAD
-                <form>
-                    <label for="name" className="font-semibold text-sm my-8">
-                        Full Name<br/>
-                        <input type="text" className="rounded-md w-full border border-color: inherit py-2 px-3 mb-8" placeholder="John Doe" name="name" id="name"/>
-                    </label><br/>
-
-                    <label for="email" className="font-semibold text-sm">
-                        Email<br/>
-                        <input type="email" className="rounded-md w-full border border-color: inherit py-2 px-3 mb-8" placeholder="johndoe@email.com" name="email"/>
-                    </label><br/>
-
-                    <label for="password" className="font-semibold text-sm">
-                        Password<br/>
-                        <input type="password" className="rounded-md w-full border border-color: inherit py-2 px-3 mb-8" placeholder="***********"/>
-                    </label>
-=======
                 <form onSubmit={handleSubmit}>
                     <label htmlFor="name" className="my-8">
                         Full Name
@@ -150,7 +117,6 @@ function SignUp()   {
                             placeholder="***********"
                             name="password"
                         />
->>>>>>> 791f5b192b33043a82bac89b65010a07214867aa
 
                     <div className="flex mt-5">
                         <button
@@ -161,19 +127,6 @@ function SignUp()   {
                     </div>
                 </form>
 
-<<<<<<< HEAD
-                <div className="flex">
-                    <div className="w-full">
-                        <Link to="/Email">
-                            <button className=" w-full justify-items-around rounded-md py-2 px-3 bg-[#0B63E5] text-white text-bold">Sign Up</button>
-                        </Link>
-
-                    </div>
-                </div>
-
-                <div >
-                    <p className="my-10 text-center">Already have an acount?<Link to="/Login"> <span className="text-fuchsia-400">Login</span></Link></p>
-=======
 
                 <div >
                     <p className="mt-5 text-center">
@@ -184,12 +137,11 @@ function SignUp()   {
                             </span>
                         </Link>
                     </p>
->>>>>>> 791f5b192b33043a82bac89b65010a07214867aa
                 </div>
             </div>
         </section>
     )
 }
 
-export default SignUp
+export default Signup
   

@@ -50,23 +50,12 @@ function Login() {
   }
 
     return (
-<<<<<<< HEAD
-        <section className="flex h-screen gap-16 justify-center items-center">
-            <div className="left-side sm:max-md:hidden bg-[url('./assets/images/bg.png')]">
-=======
         <section className="clash-variable flex gap-8 justify-items-center items-center overflow-y-hidden">
             <article className="hidden sm:block left-side bg-[url('./assets/images/bg.png')] ">
->>>>>>> 791f5b192b33043a82bac89b65010a07214867aa
                 <AIbot />
             </article>
 
 
-<<<<<<< HEAD
-            <div className="w-1/2 right-side mr-10 mt-20">
-                <img src={ Logo }/>
-                <p className="text-2xl font-bold">Login to your account</p>
-                <p>See what is going on with your health</p>
-=======
             <article className="w-full sm:w-[30%] right-side m-10 sm:m-20">
                 <div className="flex flex-col gap-5">
                     <img src={Logo} className="w-8" />
@@ -75,7 +64,6 @@ function Login() {
                         <p>See what is going on with your health</p>
                     </div>
                 </div>
->>>>>>> 791f5b192b33043a82bac89b65010a07214867aa
 
                 <div className="my-2">
                     <div className="">
@@ -95,21 +83,6 @@ function Login() {
 
                 </div>
 
-<<<<<<< HEAD
-                <form>
-                    <label for="email" className="font-semibold text-sm">
-                        Email<br/>
-                        <input type="email" className="rounded-md w-full border border-color: inherit py-2 px-3 mb-8" placeholder="johndoe@email.com" name="email"/>
-                    </label><br/>
-
-                    <label for="password" className="font-semibold text-sm">
-                        Password<br/>
-                        <input type="password" className="rounded-md w-full border border-color: inherit py-2 px-3 " placeholder="***********"/>
-                    </label>
-
-                    <div className="flex justify-between items-center font-medium text-slate-600 text-sm">
-                        <div><input type="checkbox" checked /><span>Remember Me</span></div>
-=======
                 <form onSubmit={handleSubmit}>
                     <label htmlFor="email">
                         Email
@@ -133,7 +106,6 @@ function Login() {
                         <div>
                             <input type="checkbox" checked readOnly /><span className="ml-1">Remember Me</span>
                         </div>
->>>>>>> 791f5b192b33043a82bac89b65010a07214867aa
                         <p>Forgot password?</p>
                     </div>
 
@@ -146,16 +118,6 @@ function Login() {
                     </div>
                 </form>
 
-<<<<<<< HEAD
-                <div className="flex mt-10">
-                    <div className="w-full">
-                        <Link to="/Home">
-                            <button className="w-full justify-items-around rounded-md py-2 px-3 bg-[#0B63E5] text-white text-bold">Login</button>
-                        </Link>
-                    </div>
-                    
-=======
->>>>>>> 791f5b192b33043a82bac89b65010a07214867aa
 
                 <div>
                     <p className="mt-5 text-center">
@@ -167,15 +129,7 @@ function Login() {
                         </Link>
                     </p>
                 </div>
-<<<<<<< HEAD
-
-                <div >
-                    <p className="my-10 text-center">Not registered yet?<Link to="./Signup"> <span className="text-fuchsia-400">Create an account</span></Link></p>
-                </div>
-            </div>
-=======
             </article>
->>>>>>> 791f5b192b33043a82bac89b65010a07214867aa
         </section>
     )
 }
