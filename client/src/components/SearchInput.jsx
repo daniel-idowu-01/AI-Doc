@@ -1,9 +1,13 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { CurvedArrow } from '../assets/images'
+import NavContext from '../context/NavContext.jsx'
+import { useNavigate } from 'react-router-dom'
+import SyncLoader from "react-spinners/SyncLoader";
 
 const SearchInput = () => {
 
-  const [query, setQuery] = useState([])
+  const navigate = useNavigate()
+  const { query, setQuery, botResponse, setBotResponse } = useContext(NavContext)
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState(null)
   const token = JSON.parse(localStorage.getItem('accessToken'))
@@ -32,27 +36,18 @@ const SearchInput = () => {
       });
 
       const data = await response.json();
-      console.log(data)
+      setBotResponse(data.chat[data.chat.length - 1].content)
       if(data.success === false ) {
         setIsLoading(false);
         setError(data.message);
       }
         setIsLoading(false);
-        /* localStorage.setItem('chat', JSON.stringify(data.accessToken)) */
-        /* if (data.accessToken) {
-            navigate('/home')
-        } */
+        navigate('/chat')
     } catch (error) {
       setIsLoading(false);
       setError(error.message);
       console.log(error)
     } 
-  }
-
-  if (isLoading) {
-    return (
-      <p>Loading...</p>
-    )
   }
 
   return (
@@ -72,7 +67,14 @@ const SearchInput = () => {
       <button
         className='absolute bg-[#93ED93] rounded-[100%] w-10 h-10 p-2 right-5 opacity-80 hover:opacity-100'
       >
-        <img src={CurvedArrow} alt="" className='' type='submit' />
+        {isLoading
+          ?
+          <SyncLoader
+            color={'#93ED93'}
+            loading={isLoading}
+            size={10}
+        /> :
+          <img src={CurvedArrow} alt="" className='' type='submit' />}
       </button>
 
     </form>

@@ -1,5 +1,5 @@
 import React from "react";
-import {Logo} from "../assets/images";
+import { Logo } from "../assets/images";
 import { Link } from "react-router-dom";
 
 function Email() {
@@ -13,7 +13,11 @@ function Email() {
             </div>
             {/* Login button */}
             <div>
-                <Link to="/Login"><button className="bg-[#0B63E5] text-white mt-6 py-2 px-40 rounded">Continue</button></Link>
+                <Link to="/Login">
+                    <button className="bg-[#0B63E5] text-white mt-6 py-2 px-40 rounded">
+                        Continue
+                    </button>
+                </Link>
             </div>
         </section>
     )

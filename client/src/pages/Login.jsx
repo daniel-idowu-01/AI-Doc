@@ -32,7 +32,7 @@ function Login() {
         body: JSON.stringify(formData)
       });
 
-        const data = await response.json();
+      const data = await response.json();
       if(data.success === false ) {
         setIsLoading(false);
         setError(data.message);
@@ -47,7 +47,17 @@ function Login() {
       setIsLoading(false);
       setError(error.message);
     } 
-  }
+    }
+    
+    const handleForgotPassword = async () => {
+        const response = await fetch('https://ai-doc-7h0i.onrender.com/api/v1/auth/forgot-password', {
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData.email)
+      });
+    }
 
     return (
         <section className="clash-variable flex gap-8 justify-items-center items-center overflow-y-hidden">
@@ -106,7 +116,12 @@ function Login() {
                         <div>
                             <input type="checkbox" checked readOnly /><span className="ml-1">Remember Me</span>
                         </div>
-                        <p>Forgot password?</p>
+                        <p
+                            onClick={handleForgotPassword}
+                            className="hover:underline hover:cursor-pointer"
+                        >
+                            Forgot password?
+                        </p>
                     </div>
 
                     <div className="flex mt-5">

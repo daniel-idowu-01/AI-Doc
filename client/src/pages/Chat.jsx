@@ -9,34 +9,15 @@ const Chat = () => {
       <article className='mt-10'>
         <section>
           <div className='flex justify-between'>
-            <AIChat />
-            <div></div>
-          </div>
-
-          <div className='flex justify-between'>
             <div></div>
             <UserChat />
           </div>
-
+          
           <div className='flex justify-between'>
             <AIChat />
             <div></div>
           </div>
 
-          <div className='flex justify-between'>
-            <div></div>
-            <UserChat />
-          </div>
-
-          <div className='flex justify-between'>
-            <AIChat />
-            <div></div>
-          </div>
-
-          <div className='flex justify-between'>
-            <div></div>
-            <UserChat />
-          </div>
         </section>
 
         <article className='w-1/2 mx-auto'>
