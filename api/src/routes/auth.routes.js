@@ -10,7 +10,7 @@ authRoutes.post('/register', validate(authValidation.registerValidator), authCon
 authRoutes.get('/logout', authController.logout);
 authRoutes.get('/refresh-token', authController.refreshToken);
 authRoutes.post('/forgot-password', authController.forgotPassword);
-authRoutes.get('/reset-password', authController.resetPassword);
+authRoutes.post('/reset-password', authController.resetPassword);
 authRoutes.post('/verify-email', verityJWT, authController.sendVerifyEmail);
 authRoutes.get('/verify-email', authController.verifyEmail);
 

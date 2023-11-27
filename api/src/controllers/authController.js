@@ -177,7 +177,7 @@ const resetPassword = async (req, res) => {
   const { token } = req.query;
   try {
     const resetPasswordTokenDoc = await verifyToken(token, 'resetPassword');
-    const user = await User.findById(resetPasswordTokenDoc.user);
+    const user = await User.findById(resetPasswordTokenDoc.userId).exec();
     if (!user) {
       throw new Error('User not found');
     }
@@ -185,6 +185,8 @@ const resetPassword = async (req, res) => {
     user.password = hashedPassword;
     await user.save();
     await Token.deleteMany({ user: user._id, type: 'resetPassword' });
+    
+    res.status(200).json({ message: 'Password reset successfully' });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
