@@ -3,6 +3,7 @@
 This is an AI-powered symptom and diagnosis guidance web application built using ReactJS, Node.js, Express, MongoDB. It helps users manage their health.
 
 <br>
+
 ## Table of Contents
 
 - [Features](#features)
