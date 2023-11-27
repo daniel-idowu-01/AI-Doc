@@ -1,6 +1,4 @@
-import { MainView, Home, Chat } from "./pages";
-import Signup from "./pages/SignUp";
-import Login from "./pages/Login";
+import { MainView, Home, Chat, SignUp, Login } from "./pages";
 import { Routes, Route } from 'react-router-dom';
 import { NavProvider } from "./context/NavContext.jsx";
 
@@ -10,7 +8,7 @@ function App() {
     <div className="urbanist">
       <NavProvider>
         <Routes>
-        <Route path='/' element={<Signup />} />
+        <Route path='/' element={<SignUp />} />
         <Route path='/login' element={<Login />} />
           <Route element={<MainView />}>
             <Route path="/home" element={<Home />}/>
