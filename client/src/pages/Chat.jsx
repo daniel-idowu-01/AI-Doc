@@ -3,7 +3,7 @@ import { TopContent, SearchInput, AIChat, UserChat } from '../components'
 
 const Chat = () => {
   return (
-    <section className='relative left-[5%] w-[90%] sm:w-[95%] bg-background px-10 py-5'>
+    <section className='relative sm:left-[5%] w-full sm:w-[95%] bg-background px-5 sm:px-10 py-5'>
       <TopContent />
 
       <article className='mt-10'>

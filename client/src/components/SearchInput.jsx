@@ -4,7 +4,7 @@ import { CurvedArrow } from '../assets/images'
 const SearchInput = () => {
   return (
     <article
-      className='fixed bottom-10 w-1/2 flex justify-between items-center bg-[#E1F2FF] p-6 rounded-[32px]'
+      className='fixed bottom-0 sm:bottom-10 left-0 sm:left-auto w-full sm:w-1/2 flex justify-between items-center bg-[#E1F2FF] p-6 sm:rounded-[32px] sm:mx-0'
     > 
 
       <input

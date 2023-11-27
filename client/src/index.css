@@ -4,6 +4,18 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+    font-family: 'Clash Display Variable';
+    src: 
+         url('./assets/fonts/ClashDisplay-Variable.ttf') format('truetype');
+         font-weight: normal;
+         font-style: normal;
+  }
+
 .urbanist {
   font-family: 'Urbanist';
+}
+
+.clash-variable {
+  font-family: 'Clash Display Variable';
 }

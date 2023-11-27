@@ -1,9 +1,6 @@
-import { SideBar } from "./components"
-import { MainView, Home, Chat } from "./pages";
-import Signup from "./pages/SignUp";
-import Login from "./pages/Login";
+import { MainView, Home, Chat, SignUp, Login } from "./pages";
 import { Routes, Route } from 'react-router-dom';
-import Email from "./pages/Email";
+import { NavProvider } from "./context/NavContext.jsx";
 
 function App() {
 
@@ -18,6 +15,16 @@ function App() {
           <Route path='/chat' element={<Chat />} />
         </Route>
       </Routes>
+      <NavProvider>
+        <Routes>
+        <Route path='/' element={<SignUp />} />
+        <Route path='/login' element={<Login />} />
+          <Route element={<MainView />}>
+            <Route path="/home" element={<Home />}/>
+            <Route path='/chat' element={<Chat />} />
+          </Route>
+        </Routes>
+      </NavProvider>
     </div>
   )
 }
