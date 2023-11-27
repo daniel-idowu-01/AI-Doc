@@ -1,5 +1,19 @@
 const mongoose = require('mongoose');
-const chatsModel = require('./chats.js');
+const { randomUUID } = require('crypto');
+const chatSchema = new mongoose.Schema({
+  id: {
+    type: String,
+    default: randomUUID(),
+  },
+  role: {
+    type: String,
+    required: true,
+  },
+  content: {
+    type: String,
+    required: true,
+  },
+});
 
 const userSchema = new mongoose.Schema({
   name: {
@@ -15,15 +29,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  chats: [chatsModel],
-  refreshToken: {
-    type: String,
-    default: null,
-  },
-  isEmailVerified: {
-    type: Boolean,
-    default: false,
-  },
+  chats: [chatSchema],
 });
 
 module.exports = mongoose.model('User', userSchema);

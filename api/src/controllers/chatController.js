@@ -1,7 +1,7 @@
 const User = require('../model/User');
 const axios = require('axios');
 const generateChat = async (req, res) => {
-  const { messages } = req.body;
+  const { query } = req.body;
   const { id } = req.user;
   try {
     const user = await User.findById(id);
@@ -9,14 +9,46 @@ const generateChat = async (req, res) => {
     if (!user) {
       return res.status(400).json({ message: 'User not found' });
     }
+    if (!query) {
+      return res.status(400).json({ message: 'Query is required' });
+    }
+
+    user.chats.push({
+      content: query,
+      role: 'user',
+    });
     const { data } = await axios.post(
-      'http://8320-34-125-150-98.ngrok-free.app',
+      'http://a730-34-16-181-176.ngrok-free.app',
       {
-        query: messages,
+        query,
       }
     );
+    if (!data) {
+      return res.status(400).json({ message: 'Data not found' });
+    }
 
-    res.status(200).json({ data });
+    user.chats.push({ content: data.response, role: 'bot' });
+    await user.save();
+
+    res.status(200).json({
+      chat: user.chats,
+    });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+const getChats = async (req, res) => {
+  const { id } = req.user;
+  try {
+    const user = await User.findById(id);
+
+    if (!user) {
+      return res.status(400).json({ message: 'User not found' });
+    }
+
+    res.status(200).json({
+      chat: user.chats,
+    })
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -24,4 +56,5 @@ const generateChat = async (req, res) => {
 
 module.exports = {
   generateChat,
+  getChats
 };
