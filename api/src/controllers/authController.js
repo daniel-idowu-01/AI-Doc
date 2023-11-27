@@ -1,6 +1,17 @@
 const User = require('../model/User');
+const Token = require('../model/token');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const {
+  sendEmail,
+  sendResetPasswordEmail,
+  sendVerificationEmail,
+} = require('../services/email.services');
+const {
+  generateResetPasswordToken,
+  verifyToken,
+  generateVerifyEmailToken,
+} = require('../services/token.services');
 
 const login = async (req, res) => {
   const { email, password } = req.body;
@@ -45,9 +56,12 @@ const login = async (req, res) => {
       maxAge: 24 * 60 * 60 * 1000,
     });
 
-    res
-      .status(200)
-      .json({ message: 'Login successful', user: { ...payload }, accessToken, refreshToken });
+    res.status(200).json({
+      message: 'Login successful',
+      user: { ...payload },
+      accessToken,
+      refreshToken,
+    });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -77,7 +91,7 @@ const register = async (req, res) => {
     });
 
     console.log(result);
-    res.Status(201).send({
+    res.status(201).send({
       message: 'User created successfully',
       user: {
         id: result._id,
@@ -107,15 +121,13 @@ const refreshToken = async (req, res) => {
       return res.status(403).json({ message: 'Forbidden' });
     }
     const payload = {
-        id: existingUser._id,
-        name: existingUser.name,
-        email: existingUser.email,
-      };
-    const accessToken = jwt.sign(
-      payload,
-      process.env.ACCESS_TOKEN_SECRET,
-      { expiresIn: '7d' }
-    );
+      id: existingUser._id,
+      name: existingUser.name,
+      email: existingUser.email,
+    };
+    const accessToken = jwt.sign(payload, process.env.ACCESS_TOKEN_SECRET, {
+      expiresIn: '7d',
+    });
     res.json({ accessToken });
   });
 };
@@ -145,9 +157,88 @@ const logout = async (req, res) => {
   res.status(204).json({ message: 'Logged out' });
 };
 
+const forgotPassword = async (req, res) => {
+  const { email } = req.body;
+  try {
+    const resetPasswordToken = await generateResetPasswordToken(email);
+    if (!resetPasswordToken) {
+      throw new Error('Failed to generate reset password token');
+    }
+    await sendResetPasswordEmail(email, resetPasswordToken);
+
+    res.status(200).json({ message: 'Reset password email sent' });
+  } catch (error) {
+    res.status(500).json({ message: error });
+  }
+};
+
+const resetPassword = async (req, res) => {
+  const { password } = req.body;
+  const { token } = req.query;
+  try {
+    const resetPasswordTokenDoc = await verifyToken(token, 'resetPassword');
+    const user = await User.findById(resetPasswordTokenDoc.user);
+    if (!user) {
+      throw new Error('User not found');
+    }
+    const hashedPassword = await bcrypt.hash(password, 10);
+    user.password = hashedPassword;
+    await user.save();
+    await Token.deleteMany({ user: user._id, type: 'resetPassword' });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+const sendVerifyEmail = async (req, res) => {
+  const email = req.user.email;
+
+  if (!email) {
+    return res.status(400).json({ message: 'Email is required' });
+  }
+  try {
+    const existingUser = await User.findOne({ email }).exec();
+    if (!existingUser) {
+      return res.status(400).json({ message: 'User not found' });
+    }
+    const verifyEmailToken = await generateVerifyEmailToken(existingUser._id);
+
+    if (!verifyEmailToken) {
+      return res.status(400).json({ message: 'Failed to generate verify email token' });
+    }
+    await sendVerificationEmail(email, verifyEmailToken);
+
+    res.status(200).json({ message: 'Verification email sent' });
+  } catch (error) {
+    res.status(500).json({ message: error });
+  }
+};
+
+const verifyEmail = async (req, res) => {
+  const { token } = req.query;
+  try {
+    const verifyEmailTokenDoc = await verifyToken(token, 'verifyEmail');
+    const user = await User.findById(verifyEmailTokenDoc.userId);
+    if (!user) {
+      throw new Error('User not found');
+    }
+    user.isEmailVerified = true;
+    await user.save();
+    await Token.deleteMany({ user: user._id, type: 'verifyEmail' });
+    console.log(user);
+    res.status(200).json({ message: 'Email verified' });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
 module.exports = {
   login,
   register,
   refreshToken,
   logout,
+  forgotPassword,
+  resetPassword,
+  sendVerifyEmail,
+  verifyEmail,
 };
