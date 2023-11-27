@@ -19,7 +19,7 @@ This is an AI-powered symptom and diagnosis guidance web application built using
 ## Features
 
 - User authentication and authorization.
-- AI-powered Daignosis Guidance.
+- AI-powered Diagnosis Guidance.
 
 <br>
 
