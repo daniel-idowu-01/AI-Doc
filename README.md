@@ -52,7 +52,7 @@ Before you begin, ensure you have met the following requirements:
   
   3. Install dependencies:
 
-   ``bash
+   ```bash
    npm install
 
   <br>
