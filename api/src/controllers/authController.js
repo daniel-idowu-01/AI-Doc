@@ -89,8 +89,6 @@ const register = async (req, res) => {
       name,
       password: hashedPassword,
     });
-
-    console.log(result);
     res.status(201).send({
       message: 'User created successfully',
       user: {
@@ -109,7 +107,6 @@ const refreshToken = async (req, res) => {
   if (!cookies?.jwt) {
     return res.sendStatus(401);
   }
-  console.log(cookies.jwt);
   const refreshToken = cookies.jwt;
 
   const existingUser = await User.findOne({ refreshToken }).exec();
@@ -227,7 +224,6 @@ const verifyEmail = async (req, res) => {
     user.isEmailVerified = true;
     await user.save();
     await Token.deleteMany({ user: user._id, type: 'verifyEmail' });
-    console.log(user);
     res.status(200).json({ message: 'Email verified' });
   } catch (error) {
     res.status(500).json({ message: error.message });
