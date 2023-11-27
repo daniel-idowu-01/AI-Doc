@@ -61,12 +61,12 @@ function Login() {
 
     return (
         <section className="clash-variable flex gap-8 justify-items-center items-center overflow-y-hidden">
-            <article className="hidden sm:block left-side bg-[url('./assets/images/bg.png')] ">
+            <article className="hidden md:block left-side bg-[url('./assets/images/bg.png')] ">
                 <AIbot />
             </article>
 
 
-            <article className="w-full sm:w-[30%] right-side m-10 sm:m-20">
+            <article className="w-full md:w-[30%] right-side m-10 md:m-20">
                 <div className="flex flex-col gap-5">
                     <img src={Logo} className="w-8" />
                     <div>

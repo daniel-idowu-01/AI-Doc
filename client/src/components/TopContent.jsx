@@ -13,7 +13,7 @@ const TopContent = () => {
         <div>
           <span
             onClick={() => setSideBar(!sideBar)}
-            className="sm:hidden material-symbols-outlined hover:cursor-pointer">
+            className="md:hidden material-symbols-outlined hover:cursor-pointer">
               menu
           </span>
         </div>

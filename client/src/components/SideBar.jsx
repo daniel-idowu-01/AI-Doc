@@ -30,13 +30,13 @@ const SideBar = () => {
 
   return (
     <section
-      className={`${sideBar ? 'left-0' : '-left-1/2'} fixed flex justify-center w-[20%] sm:left-0 sm:w-[5%] h-screen bg-primary pt-3 pb-5 z-10 transition-all`}
+      className={`${sideBar ? 'left-0' : '-left-1/2'} fixed flex justify-center w-[20%] md:left-0 md:w-[5%] h-screen bg-primary pt-3 pb-5 z-10 transition-all`}
     >
       <article className='flex flex-col justify-between'>
         <span
           onClick={() => setSideBar(!sideBar)}
-          className="sm:hidden material-symbols-outlined text-white text-center border rounded-[100%] p-2 hover:cursor-pointer"
-        >
+          className="md:hidden material-symbols-outlined text-white border rounded-[100%] p-2 hover:cursor-pointer"
+        > 
           close
         </span>
         

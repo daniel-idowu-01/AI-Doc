@@ -53,19 +53,19 @@ const SearchInput = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className='fixed bottom-0 sm:bottom-10 left-0 sm:left-auto w-full sm:w-1/2 flex justify-between items-center bg-[#E1F2FF] p-6 sm:rounded-[32px] sm:mx-0'
+      className='fixed bottom-0 md:bottom-10 left-0 md:left-auto w-full md:w-1/2 flex justify-between items-center bg-[#E1F2FF] p-6 md:rounded-[32px] md:mx-0'
     > 
 
       <input
         type="text"
         onChange={handleChange}
         placeholder='Send your message to AI Doc...'
-        className='w-[90%] outline-none bg-transparent'
+        className='w-full md:w-[90%] outline-none bg-transparent'
         name='query'
       />
 
       <button
-        className='absolute bg-[#93ED93] rounded-[100%] w-10 h-10 p-2 right-5 opacity-80 hover:opacity-100'
+        className='absolute bg-[#93ED93] rounded-[100%] w-10 h-10 p-2 right-5 hover:opacity-80'
       >
         {isLoading
           ?

@@ -51,12 +51,12 @@ function Signup()   {
     
     return (
         <section className="clash-variable flex gap-8 justify-items-center items-center">
-            <div className="hidden sm:block left-side bg-[url('./assets/images/bg.png')] ">
+            <div className="hidden md:block left-side bg-[url('./assets/images/bg.png')] ">
                 <AIbot />
             </div>
 
 
-            <div className="w-full sm:w-[30%] right-side m-10 sm:m-20">
+            <div className="w-full md:w-[30%] right-side m-10 md:m-20">
                 <div className="flex flex-col gap-5">
                     <img src={Logo} className="w-8" />
                     <div>

@@ -26,15 +26,15 @@ const Home = () => {
 
 
   return (
-    <section className='relative sm:left-[5%] h-screen w-full sm:w-[95%] bg-background px-5 sm:px-10 py-5'>
+    <section className='relative md:left-[5%] h-screen w-full md:w-[95%] bg-background px-5 md:px-10 py-5'>
       <TopContent />
 
       {/* body content */}
-      <article className='flex justify-center relative top-16 sm:top-32'>
+      <article className='flex justify-center relative top-16 md:top-32'>
         <div className='flex flex-col gap-20'>
           <p className='text-[#4B3425] font-bold text-5xl text-center'>AI Doc</p>
 
-          <aside className='flex flex-col sm:flex-row justify-center gap-8'>
+          <aside className='flex flex-col md:flex-row justify-center gap-8'>
           
             {/* content for the describe symptoms box */}
             <article className='bg-[#60B7FF] rounded-3xl p-4'>
