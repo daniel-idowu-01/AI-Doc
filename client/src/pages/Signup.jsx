@@ -3,7 +3,7 @@ import { Logo,  Google } from '../assets/images';
 import AIbot from '../components/AIbot';
 import { Link, useNavigate } from "react-router-dom";
 
-function SignUp()   {
+function Signup()   {
 
     const [formData, setFormData] = useState({})
     const [isLoading, setIsLoading] = useState(false)
@@ -143,5 +143,5 @@ function SignUp()   {
     )
 }
 
-export default SignUp
+export default Signup
   
