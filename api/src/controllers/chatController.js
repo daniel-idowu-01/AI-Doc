@@ -18,7 +18,7 @@ const generateChat = async (req, res) => {
       role: 'user',
     });
     const { data } = await axios.post(
-      'http://a730-34-16-181-176.ngrok-free.app',
+      process.env.BOT_API_URL,
       {
         query,
       }
