@@ -1,8 +1,25 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { TopContent, SearchInput } from '../components'
 import { Arrow } from '../assets/images'
 
 const Home = () => {
+
+  const token = JSON.parse(localStorage.getItem('accessToken'))
+
+  useEffect(() => {
+    const fetchUser = async() => {
+      const response = await fetch('https://ai-doc-7h0i.onrender.com/api/v1/users/', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`
+        }
+      })
+      const data = await response.json()
+    }
+
+    fetchUser();
+  }, [])
   
   // image link from figma
   const conversation_image_link = 'https://s3-alpha-sig.figma.com/img/aa8b/b716/b2890122870cef41bbc8a7f016329125?Expires=1701648000&Signature=FoDjGVUt8EpfLbdnmznN3Sh6w~HzN60UZPy46ElAxQWslWvbXbzy3CIPkBdjkpPCORJPi1z15PbzYMD~XqKxZ~2csIAYWXHVOXLDl3oV4kNBGlmpzINydiAxovb1U4CpAWsayx6pgdOznqSdEfwQniVzns5DKgiIFSxX0GL2U0Ar3XvARe9-~MGbio0~HyiV6pFaDzqviubks8lNWzfawg5JbCPSfuPGVY5d9Pkacem9Z~5GhNMB0R5rKgeRSmoW6Wdl1zLNpO3tXPV4qoBA2LLFv10kmDVCrtcJSCCjYu3ncMPLVOaDiQ9XKpOfIFDMRbqhjsH8YnyNnK1nMJUV4g__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4'

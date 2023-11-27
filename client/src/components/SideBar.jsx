@@ -1,18 +1,37 @@
 import React, { useContext } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { Logo, Dashboard, Chat, Gear, Bookmark, User, Document, Logout } from '../assets/images'
 import NavContext from '../context/NavContext.jsx'
 
 const SideBar = () => {
 
+  const navigate = useNavigate()
   const { setSideBar, sideBar } = useContext(NavContext)
+  const userDetails = JSON.parse(localStorage.getItem('userDetails'))
   const sideBarLinks = 'w-10 h-10 hover:bg-secondary hover:cursor-pointer p-2 rounded-full transition-all'
 
-  // image link from figma
-  const image_source_link = "https://s3-alpha-sig.figma.com/img/32d1/6d72/9d54a41981aa5976fb76dc8f25b80ef2?Expires=1701648000&Signature=S3HWY-ixZkteKOx3xoN06ECD~3SCss~LlvGnVYMGp18jy5zkrqeHGJZr4o~n-6fdOJqJ5dQcF9pSICfNu3RMzM0yviHGIKUNt2dK7ErZqNvnPdQYK1e02U4McttKW7SYbaRuFhqG0S6BiK8Fd83bxzSueEO9s97a9to7EmmmtH5ad4sV~qWTZuSZxBcU1NFSEryKhdnfrSe98~pGvKWr74nUsCbOPQ0QRMlB3FBdbad8oIG917Ui68O5MyZRPZ--MSdpLqC4HwYtZ3AqYGHLSKNVUmHMZOpqagIA59m6Fxom7y4KD~VHYfWwOALZ5d66TJ6SO0L7lY1gC3UoFxxs7Q__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
+  // function to log user out
+  const handleLogOut = async () => {
+    localStorage.removeItem('accessToken')
+    localStorage.removeItem('userDetails')
 
+    const response = await fetch('https://ai-doc-7h0i.onrender.com/api/v1/auth/logout', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+    })
+    
+    if (response) {
+      navigate('/login')
+      location.reload()
+    }
+  }
 
   return (
-    <section className={`${sideBar ? 'left-0' : '-left-1/2'} fixed flex justify-center w-[20%] sm:left-0 sm:w-[5%] h-screen bg-primary pt-3 pb-5 z-10 transition-all`}>
+    <section
+      className={`${sideBar ? 'left-0' : '-left-1/2'} fixed flex justify-center w-[20%] sm:left-0 sm:w-[5%] h-screen bg-primary pt-3 pb-5 z-10 transition-all`}
+    >
       <article className='flex flex-col justify-between'>
         <span
           onClick={() => setSideBar(!sideBar)}
@@ -38,15 +57,19 @@ const SideBar = () => {
           <img src={Bookmark} alt="" className={sideBarLinks} />
           <img src={User} alt="" className={sideBarLinks} />
           <img src={Document} alt="" className={sideBarLinks} />
-          <img src={Logout} alt="" className={sideBarLinks} />
+          <img
+            onClick={handleLogOut}
+            src={Logout}
+            alt=""
+            className={sideBarLinks}
+            title='Logout'
+          />
         </div>
 
         <div>
-          <img
-            src={image_source_link}
-            alt=""
-            className='w-10 rounded-full object-cover'
-          />
+          <p className='clash-variable text-center text-xl rounded-[100%] p-3 bg-white uppercase font-[900]'>
+            {userDetails.name[0]}
+          </p>
         </div>  
       </article>
     </section>

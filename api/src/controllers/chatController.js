@@ -1,5 +1,6 @@
 const User = require('../model/User');
 const axios = require('axios');
+
 const generateChat = async (req, res) => {
   const { query } = req.body;
   const { id } = req.user;
@@ -37,6 +38,8 @@ const generateChat = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+
+
 const getChats = async (req, res) => {
   const { id } = req.user;
   try {

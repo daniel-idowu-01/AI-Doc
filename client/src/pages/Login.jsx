@@ -21,7 +21,6 @@ function Login() {
   // to submit form data
   const handleSubmit = async (e) => {
       e.preventDefault();
-      console.log(formData)
 
     try {
       setIsLoading(true)
@@ -33,13 +32,14 @@ function Login() {
         body: JSON.stringify(formData)
       });
 
-      const data = await response.json();
+        const data = await response.json();
       if(data.success === false ) {
         setIsLoading(false);
         setError(data.message);
       }
         setIsLoading(false);
-        console.log(data);
+        localStorage.setItem('accessToken', JSON.stringify(data.accessToken))
+        localStorage.setItem('userDetails', JSON.stringify(data.user))
         if (data.accessToken) {
             navigate('/home')
         }
@@ -113,7 +113,7 @@ function Login() {
                         <button
                             type="submit"
                             className="w-full justify-items-around rounded-md py-2 px-3 bg-[#0B63E5] text-white text-bold">
-                            Login
+                            {isLoading ? 'Loading...' : 'Login'}
                         </button>
                     </div>
                 </form>
