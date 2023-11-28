@@ -131,7 +131,7 @@ function Signup()   {
                 <div >
                     <p className="mt-5 text-center">
                         Already have an account?
-                        <Link to="/login">
+                        <Link to="/">
                             <span className="text-fuchsia-400 ml-1 underline">
                                 Login
                             </span>

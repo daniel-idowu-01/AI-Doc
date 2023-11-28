@@ -137,7 +137,7 @@ function Login() {
                 <div>
                     <p className="mt-5 text-center">
                         Not registered yet?
-                        <Link to="/">
+                        <Link to="/sign-up">
                             <span className="text-fuchsia-400 hover:underline ml-1">
                                 Create an account
                             </span>

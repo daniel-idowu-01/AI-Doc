@@ -8,8 +8,8 @@ function App() {
     <div className="urbanist">
       <NavProvider>
         <Routes>
-          <Route path='/' element={<Signup />} />
-          <Route path='/login' element={<Login />} />
+          <Route path='/' element={<Login />} />
+          <Route path='/sign-up' element={<Signup />} />
           <Route path='/email-confirmation' element={<Email />} />
           <Route path='/forgot-password' element={<ForgotPassword />} />
           <Route element={<MainView />}>
