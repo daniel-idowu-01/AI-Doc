@@ -38,11 +38,11 @@ function Login() {
         setError(data.message);
       }
         setIsLoading(false);
-        localStorage.setItem('accessToken', JSON.stringify(data.accessToken))
-        localStorage.setItem('userDetails', JSON.stringify(data.user))
         if (data.accessToken) {
             navigate('/home')
         }
+        localStorage.setItem('accessToken', JSON.stringify(data.accessToken))
+        localStorage.setItem('userDetails', JSON.stringify(data.user))
     } catch (error) {
       setIsLoading(false);
       setError(error.message);

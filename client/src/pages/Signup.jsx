@@ -38,9 +38,8 @@ function Signup()   {
         setError(data.message);
       }
         setIsLoading(false);
-        console.log(data);
         if (data.user.id) {
-            navigate('/login')
+            navigate('/')
         }
     } catch (error) {
       setIsLoading(false);
