@@ -36,7 +36,11 @@ const SearchInput = () => {
       });
 
       const data = await response.json();
-      setBotResponse(data.chat[data.chat.length - 1].content)
+      if (response.status !== 200) {
+        setBotResponse('Sorry! The chatbot is currently unavailiable.')
+      } else {
+        setBotResponse(data.chat[data.chat.length - 1].content)
+      }
       if(data.success === false ) {
         setIsLoading(false);
         setError(data.message);
@@ -48,6 +52,10 @@ const SearchInput = () => {
       setError(error.message);
       console.log(error)
     } 
+  }
+
+  if (isLoading) {
+    setBotResponse('AI is typing...')
   }
 
   return (

@@ -40,6 +40,8 @@ function Login() {
         setIsLoading(false);
         if (data.accessToken) {
             navigate('/home')
+        } else {
+            setError('Email or password not correct!')
         }
         localStorage.setItem('accessToken', JSON.stringify(data.accessToken))
         localStorage.setItem('userDetails', JSON.stringify(data.user))
@@ -144,6 +146,15 @@ function Login() {
                         </Link>
                     </p>
                 </div>
+
+                {error
+                    ?
+                    <p className="text-center text-red-500 text-sm mt-3">
+                        {error}
+                    </p>
+                    :
+                    ''
+                }
             </article>
         </section>
     )

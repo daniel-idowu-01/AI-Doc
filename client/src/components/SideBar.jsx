@@ -48,7 +48,7 @@ const SideBar = () => {
           <div className='relative'>
             <span
               className='absolute bg-black text-white -top-1/4 right-0 p-1 px-2 rounded-[100%] text-[10px]'>
-              16
+              0
             </span>
             <img src={Dashboard} alt='' className='w-10 h-10 hover:bg-secondary hover:cursor-pointer p-2 rounded-full transition-all' />
           </div>
