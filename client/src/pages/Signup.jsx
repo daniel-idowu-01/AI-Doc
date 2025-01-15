@@ -50,14 +50,14 @@ function Signup() {
   };
 
   return (
-    <section className="clash-variable flex gap-8 justify-items-center items-center">
+    <section className="flex gap-8 justify-center items-center min-h-screen">
       <div className="hidden md:block left-side bg-[url('./assets/images/bg.png')] ">
         <AIbot />
       </div>
 
       <div className="w-full md:w-[30%] right-side m-10 md:m-20">
         <div className="flex flex-col gap-5">
-          <img src={Logo} className="w-8" />
+          {/* <img src={Logo} className="w-8" /> */}
           <div>
             <p className="text-2xl font-bold">Create an account</p>
             <p>See what is going on with your health</p>
@@ -74,8 +74,10 @@ function Signup() {
             </button>
           </div>
           <div className="text-center ">
-            <p className="opacity-50">
-              --------- or Sign up with email ---------
+            <p className="flex justify-center items-center">
+              <hr className="w-full" />
+              <p className="w-full opacity-50">or sign up with email</p>
+              <hr className="w-full" />
             </p>
           </div>
         </div>
@@ -130,7 +132,7 @@ function Signup() {
           <p className="mt-5 text-center">
             Already have an account?
             <Link to="/">
-              <span className="text-fuchsia-400 ml-1 underline">Login</span>
+              <span className="text-[#0B63E5] ml-1 underline">Login</span>
             </Link>
           </p>
         </div>
