@@ -3,50 +3,51 @@ import { Logo } from "../assets/images";
 import { Link, useNavigate } from "react-router-dom";
 
 const ForgotPassword = () => {
-
-  const [formData, setFormData] = useState({})
-  const [isLoading, setIsLoading] = useState(false)
-  const [error, setError] = useState(null)
+  const [formData, setFormData] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
   const navigate = useNavigate();
 
   // to update user inputs
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
-    })
-  }
+      [e.target.name]: e.target.value,
+    });
+  };
 
   // to submit form data
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      setIsLoading(true)
-      const response = await fetch('https://ai-doc-7h0i.onrender.com/api/v1/auth/register', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData)
-      });
+      setIsLoading(true);
+      const response = await fetch(
+        "http://localhost:5000/api/v1/auth/register",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
 
       const data = await response.json();
-      if(data.success === false ) {
+      if (data.success === false) {
         setIsLoading(false);
         setError(data.message);
       }
-        setIsLoading(false);
-        console.log(data);
-        if (data.user.id) {
-            navigate('/login')
-        }
+      setIsLoading(false);
+      console.log(data);
+      if (data.user.id) {
+        navigate("/login");
+      }
     } catch (error) {
       setIsLoading(false);
       setError(error.message);
     }
-    
-  }
+  };
 
   return (
     <section className="flex flex-col h-screen justify-center items-center gap-8 bg-[url('./assets/images/wavybg.svg')]">
@@ -54,7 +55,9 @@ const ForgotPassword = () => {
         <img src={Logo} />
       </div>
       <div>
-        <p className="text-4xl font-bold">Enter Your Email To Get Verification Link</p>
+        <p className="text-4xl font-bold">
+          Enter Your Email To Get Verification Link
+        </p>
       </div>
       {/* Login button */}
       <form onSubmit={handleSubmit}>
@@ -62,7 +65,8 @@ const ForgotPassword = () => {
           type="email"
           onChange={handleChange}
           className="rounded-md outline-none w-full border border-color: inherit py-2 px-3 mb-8"
-          placeholder="johndoe@email.com" name="email"
+          placeholder="johndoe@email.com"
+          name="email"
         />
         <div>
           <Link to="/Login">
@@ -73,7 +77,7 @@ const ForgotPassword = () => {
         </div>
       </form>
     </section>
-  )
-}
+  );
+};
 
-export default ForgotPassword
+export default ForgotPassword;

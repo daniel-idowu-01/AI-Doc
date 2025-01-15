@@ -23,16 +23,13 @@ function Login() {
 
     try {
       setIsLoading(true);
-      const response = await fetch(
-        "https://ai-doc-7h0i.onrender.com/api/v1/auth/login",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        }
-      );
+      const response = await fetch("http://localhost:5000/api/v1/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
       const data = await response.json();
       if (data.success === false) {
@@ -55,7 +52,7 @@ function Login() {
 
   const handleForgotPassword = async () => {
     const response = await fetch(
-      "https://ai-doc-7h0i.onrender.com/api/v1/auth/forgot-password",
+      "http://localhost:5000/api/v1/auth/forgot-password",
       {
         method: "POST",
         headers: {

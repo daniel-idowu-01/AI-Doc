@@ -32,47 +32,48 @@ Before you begin, ensure you have met the following requirements:
 - Node.js and npm installed.
 - MongoDB installed and running.
 - Git for version control.
-  
+
 ### Installation
 
 1. Clone the repository:
 
    ```bash
    git clone https://github.com/daniel-idowu-01/AI-Doc
+   ```
 
 <br>
    
 2. Navigate to the project directory:
 
+````bash
+cd client (for frontend)
+cd api (for backend)
+
+<br>
+
+3. Install dependencies:
+
    ```bash
-   cd client (for frontend)
-   cd api (for backend)
- 
-  <br>
-  
-  3. Install dependencies:
+   npm install
 
-      ```bash
-      npm install
+<br>
 
-  <br>
-  
 4. Configure environment variables:
-   - Create a '.env' file in the project root.
-   - Add the necessary environment variables (e.g., database URL, JWT secret, etc.):
+- Create a '.env' file in the project root.
+- Add the necessary environment variables (e.g., database URL, JWT secret, etc.):
 
- <br>
-    
+<br>
+
 5. Start the application:
 
-   ```bash
-   npm run dev
- 
-  <br>
+```bash
+npm run dev
+
+<br>
 
 ## Usage
 
-1. Access the application in your web browser or API client at 'https://ai-doc-7h0i.onrender.com'.
+1. Access the application in your web browser or API client at 'http://localhost:5000'.
 2. Sign up and create an account or log in if you already have one.
 3. Use the provided API endpoints.
 
@@ -95,3 +96,4 @@ We welcome contributions from the community! If you'd like to contribute to this
 5. Create a pull request to the `main` branch of the original repository.
 
 <br>
+````

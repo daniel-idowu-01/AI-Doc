@@ -24,7 +24,7 @@ function Signup() {
     try {
       setIsLoading(true);
       const response = await fetch(
-        "https://ai-doc-7h0i.onrender.com/api/v1/auth/register",
+        "http://localhost:5000/api/v1/auth/register",
         {
           method: "POST",
           headers: {
