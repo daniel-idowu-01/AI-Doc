@@ -2,11 +2,11 @@ const User = require('../model/User');
 const Token = require('../model/token');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const {
-  sendEmail,
-  sendResetPasswordEmail,
-  sendVerificationEmail,
-} = require('../services/email.services');
+// const {
+//   sendEmail,
+//   sendResetPasswordEmail,
+//   sendVerificationEmail,
+// } = require('../services/email.services');
 const {
   generateResetPasswordToken,
   verifyToken,
@@ -161,7 +161,7 @@ const forgotPassword = async (req, res) => {
     if (!resetPasswordToken) {
       throw new Error('Failed to generate reset password token');
     }
-    await sendResetPasswordEmail(email, resetPasswordToken);
+    // await sendResetPasswordEmail(email, resetPasswordToken);
 
     res.status(200).json({ message: 'Reset password email sent' });
   } catch (error) {
@@ -205,7 +205,7 @@ const sendVerifyEmail = async (req, res) => {
     if (!verifyEmailToken) {
       return res.status(400).json({ message: 'Failed to generate verify email token' });
     }
-    await sendVerificationEmail(email, verifyEmailToken);
+    // await sendVerificationEmail(email, verifyEmailToken);
 
     res.status(200).json({ message: 'Verification email sent' });
   } catch (error) {

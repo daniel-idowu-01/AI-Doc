@@ -67,14 +67,14 @@ function Login() {
   };
 
   return (
-    <section className="clash-variable flex gap-8 justify-items-center items-center overflow-y-hidden">
+    <section className="flex gap-8 justify-center items-center min-h-screen">
       <article className="hidden md:block left-side bg-[url('./assets/images/bg.png')] ">
         <AIbot />
       </article>
 
       <article className="w-full md:w-[30%] right-side m-10 md:m-20">
         <div className="flex flex-col gap-5">
-          <img src={Logo} className="w-8" />
+          {/* <img src={Logo} className="w-8" /> */}
           <div>
             <p className="text-2xl font-bold">Login to your account</p>
             <p>See what is going on with your health</p>
@@ -83,7 +83,7 @@ function Login() {
 
         <div className="my-2">
           <div className="">
-            <button className="text-center w-full my-4 rounded-md border border-color: inherit py-2 px-3">
+            <button className="text-center w-full my-4 rounded-md border py-2 px-3">
               <span className="flex justify-content-center items-center">
                 <img src={Google} className="pr-2" />
                 Sign In with Google
@@ -91,8 +91,10 @@ function Login() {
             </button>
           </div>
           <div className="text-center ">
-            <p className="opacity-50">
-              --------- or Sign in with email ---------
+            <p className="flex justify-center items-center">
+              <hr className="w-full" />
+              <p className="w-full opacity-50">or sign in with email</p>
+              <hr className="w-full" />
             </p>
           </div>
         </div>
@@ -103,7 +105,7 @@ function Login() {
           <input
             type="email"
             onChange={handleChange}
-            className="outline-none rounded-md w-full border border-color: inherit py-2 px-3 mb-8"
+            className="outline-none rounded-md w-full border py-2 px-3 mb-8"
             placeholder="johndoe@email.com"
             name="email"
           />
@@ -114,15 +116,15 @@ function Login() {
           <input
             type="password"
             onChange={handleChange}
-            className="outline-none rounded-md w-full border border-color: inherit py-2 px-3 "
+            className="outline-none rounded-md w-full border py-2 px-3 "
             placeholder="***********"
             name="password"
           />
 
           <div className="flex justify-between items-center text-slate-600 text-sm mt-2">
-            <div>
-              <input type="checkbox" checked readOnly />
-              <span className="ml-1">Remember Me</span>
+            <div className="flex items-center gap-1">
+              <input type="checkbox" className="hover:cursor-pointer" />
+              <span>Remember Me</span>
             </div>
             <p
               onClick={handleForgotPassword}
@@ -146,7 +148,7 @@ function Login() {
           <p className="mt-5 text-center">
             Not registered yet?
             <Link to="/sign-up">
-              <span className="text-fuchsia-400 hover:underline ml-1">
+              <span className="text-[#0B63E5] hover:underline ml-1">
                 Create an account
               </span>
             </Link>
