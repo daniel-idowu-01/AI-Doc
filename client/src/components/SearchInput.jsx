@@ -26,14 +26,17 @@ const SearchInput = () => {
 
     try {
       setIsLoading(true);
-      const response = await fetch("http://localhost:5000/api/v1/chat", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify(query),
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_BACKEND_API}/api/v1/chat`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify(query),
+        }
+      );
 
       const data = await response.json();
       if (response.status !== 200) {

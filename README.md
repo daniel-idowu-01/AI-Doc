@@ -73,7 +73,7 @@ npm run dev
 
 ## Usage
 
-1. Access the application in your web browser or API client at 'http://localhost:5000'.
+1. Access the application in your web browser or API client'.
 2. Sign up and create an account or log in if you already have one.
 3. Use the provided API endpoints.
 

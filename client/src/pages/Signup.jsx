@@ -24,7 +24,7 @@ function Signup() {
     try {
       setIsLoading(true);
       const response = await fetch(
-        "http://localhost:5000/api/v1/auth/register",
+        `${import.meta.env.VITE_BACKEND_API}/api/v1/auth/register`,
         {
           method: "POST",
           headers: {

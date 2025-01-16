@@ -23,13 +23,16 @@ function Login() {
 
     try {
       setIsLoading(true);
-      const response = await fetch("http://localhost:5000/api/v1/auth/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_BACKEND_API}/api/v1/auth/login`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
 
       const data = await response.json();
       if (data.success === false) {
@@ -52,7 +55,7 @@ function Login() {
 
   const handleForgotPassword = async () => {
     const response = await fetch(
-      "http://localhost:5000/api/v1/auth/forgot-password",
+      `${import.meta.env.VITE_BACKEND_API}/api/v1/auth/forgot-password`,
       {
         method: "POST",
         headers: {

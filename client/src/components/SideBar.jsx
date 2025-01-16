@@ -24,12 +24,15 @@ const SideBar = () => {
     localStorage.removeItem("accessToken");
     localStorage.removeItem("userDetails");
 
-    const response = await fetch("http://localhost:5000/api/v1/auth/logout", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    const response = await fetch(
+      `${import.meta.env.VITE_BACKEND_API}/api/v1/auth/logout`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
 
     if (response) {
       navigate("/login");
